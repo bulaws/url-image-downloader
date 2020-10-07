@@ -1,0 +1,22 @@
+{
+  "name": "vladimir/url-image-downloader",
+  "description": "Image download by url",
+  "keywords": ["url", "image", "download"],
+  "type": "library",
+  "authors": [
+    {
+      "name": "Vladimir",
+      "email": "tarambulavs@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "guzzlehttp/guzzle": "^6.5"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Image\\Downloader": "src/"
+    }
+  }
+}
