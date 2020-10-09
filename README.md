@@ -1,7 +1,7 @@
 # Library for download image by URL.
 This library uses [Guzzle](https://github.com/guzzle/guzzle.git) PHP.
 
-![LICENSE](https://img.shields.io/badge/license-%20GPL%20v3-blue) ![unstable](https://img.shields.io/badge/unstable-dev--master-green)
+![LICENSE](https://img.shields.io/badge/license-MIT-blue) ![unstable](https://img.shields.io/badge/unstable-dev--master-green)
 
 ### Installation
 The best way to install using [composer](https://getcomposer.org/download).
