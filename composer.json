@@ -3,6 +3,7 @@
   "description": "Image download by url",
   "keywords": ["url", "image", "download", "Guzzle"],
   "type": "library",
+  "license": "MIT",
   "minimum-stability": "stable",
   "authors": [
     {
