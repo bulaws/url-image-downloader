@@ -3,6 +3,7 @@
   "description": "Image download by url",
   "keywords": ["url", "image", "download", "Guzzle"],
   "type": "library",
+  "license": "GNU General Public License v3.0",
   "authors": [
     {
       "name": "Vladimir Tarambula",
