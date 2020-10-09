@@ -1,5 +1,5 @@
 {
-  "name": "vladimir/url-image-downloader",
+  "name": "bulaws/url-image-downloader",
   "description": "Image download by url",
   "keywords": ["url", "image", "download", "Guzzle"],
   "type": "library",
