@@ -8,13 +8,13 @@ The best way to install using [composer](https://getcomposer.org/download).
 Run command in your project:
 
 ```
-composer require "greeflas/php-image-downloader": "dev-master"
+composer require "bulaws/url-image-downloader": "dev-master"
 ```
 
 Or add to require section composer.json:
 
 ```
-"greeflas/php-image-downloader": "dev-master"
+"bulaws/url-image-downloader": "dev-master"
 ```
 And run composer update.
 
