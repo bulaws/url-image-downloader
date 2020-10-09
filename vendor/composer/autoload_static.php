@@ -29,15 +29,15 @@ class ComposerStaticInit7a390a70acf7cf91ef34a555ee6ce6f2
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'I' => 
+        array (
+            'Image\\Downloader\\' => 17,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
-        ),
-        'A' => 
-        array (
-            'App\\' => 4,
         ),
     );
 
@@ -62,6 +62,10 @@ class ComposerStaticInit7a390a70acf7cf91ef34a555ee6ce6f2
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'Image\\Downloader\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -73,10 +77,6 @@ class ComposerStaticInit7a390a70acf7cf91ef34a555ee6ce6f2
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

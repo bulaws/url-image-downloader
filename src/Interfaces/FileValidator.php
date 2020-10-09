@@ -1,6 +1,6 @@
 <?php
 
-namespace Image\Downloader\interfaces;
+namespace Image\Downloader\Interfaces;
 
 interface FileValidator
 {

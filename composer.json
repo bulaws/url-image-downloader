@@ -1,7 +1,7 @@
 {
   "name": "vladimir/url-image-downloader",
   "description": "Image download by url",
-  "keywords": ["url", "image", "download"],
+  "keywords": ["url", "image", "download", "Guzzle"],
   "type": "library",
   "authors": [
     {
@@ -16,7 +16,7 @@
 
   "autoload": {
     "psr-4": {
-      "Image\\Downloader": "src/"
+      "Image\\Downloader\\": "src"
     }
   }
 }
