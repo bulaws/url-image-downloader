@@ -752,7 +752,7 @@ class ClientTest extends TestCase
 
     /**
      * @expectedException \GuzzleHttp\Exception\InvalidArgumentException
-     * @expectedExceptionMessage IDN conversion failed
+     * @expectedExceptionMessage IDN conversion failed (errors: IDNA_ERROR_LEADING_HYPHEN)
      */
     public function testExceptionOnInvalidIdn()
     {
