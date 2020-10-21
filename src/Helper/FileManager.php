@@ -10,7 +10,7 @@ class FileManager
     protected $resource;
 
     /*
-     * @return resource
+     * @return Method to get resource
      */
     public function getResource()
     {
@@ -18,7 +18,7 @@ class FileManager
     }
 
     /*
-     * Get resource
+     * Method to open resource
      * @param string $fileName
      * @param string $openMode
      * @throws \Exception
@@ -32,7 +32,7 @@ class FileManager
     }
 
     /*
-     * Close file
+     * Method to close file
      * @return boolean
      */
     public function closeResource()
@@ -41,7 +41,7 @@ class FileManager
     }
 
     /*
-     * Build path to file
+     * Method to build path of file
      * @param string $path
      * @param string $fileName
      * @return string
@@ -52,7 +52,7 @@ class FileManager
     }
 
     /*
-     * Delete file
+     * Method to delete file
      * @param string $pathWithName
      * @return boolean
      */

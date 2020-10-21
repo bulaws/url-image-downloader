@@ -41,7 +41,7 @@ class ImageDownload
     }
 
     /*
-     * Method for download file by url
+     * Method for file download by url
      * @param string $url
      * @param string $pathSave
      * @param string $fileName

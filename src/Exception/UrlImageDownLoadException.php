@@ -5,7 +5,7 @@ namespace Image\Downloader\Exception;
 class UrlImageDownLoadException extends \Exception
 {
     /*
-     * message about wrong file type
+     * Method notification of wrong file type
      * @return string
      */
     public function wrongTypeFile()

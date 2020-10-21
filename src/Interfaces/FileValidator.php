@@ -5,8 +5,7 @@ namespace Image\Downloader\Interfaces;
 interface FileValidator
 {
     /*
-     *  method for validate type
-     *  of file
+     * Method for file type validation
      * @param string
      * @return boolean
      */
@@ -14,7 +13,7 @@ interface FileValidator
     public function validate($fileDescription);
 
     /*
-     * method return rule for validate
+     * Method returns rule for validate
      * @return array
      */
     public function rule();
