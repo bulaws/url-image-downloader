@@ -5,7 +5,6 @@ namespace Image\Downloader;
 use GuzzleHttp\Client;
 use Image\Downloader\Exception\UrlImageDownLoadException;
 use Image\Downloader\Validator\ImageValidator;
-use Image\Downloader\Helper\FileManager;
 use Image\Downloader\Interfaces\FileValidator;
 
 class ImageDownload
@@ -26,9 +25,9 @@ class ImageDownload
     protected $guzzleClient;
 
     /*
-     * @var FileManager
+     * @var Guzzle Client
      */
-    protected $fileManager;
+    private $stream;
     
     /*
      * Constructor class
@@ -36,7 +35,6 @@ class ImageDownload
     public function __construct()
     {
         $this->validatorObject = new $this->validator();
-        $this->fileManager = new FileManager();
         $this->guzzleClient = new Client();
     }
 
@@ -48,24 +46,26 @@ class ImageDownload
      * @return boolean
      * @throws Exception
      */
-    public function imageDownloadByUrl($url, $pathSave, $fileName)
+    public function imageDownloadByUrl(string $url, string $pathSave, string $fileName)
     {
-        $path = $this->fileManager->buildFilePath($pathSave, $fileName);
-        $this->fileManager->openResource($path, 'wb');
+        $path = $this->buildFilePath($pathSave, $fileName);
+        $this->setFile($path, 'wb');
 
         try {
-            $request = $this->guzzleClient->get($url, ['save_to' => $this->fileManager->getResource()]);
+            $request = $this->guzzleClient->get($url, ['save_to' => $this->stream]);
             $contentType = $request->getHeader('Content-Type');
+            $this->closeResource();
 
         } catch (\Exception $e) {
+            $this->closeResource();
+            $this->deleteFile($path);
             return $e->getMessage();
         }
 
-        $this->fileManager->closeResource();
         $isValid = $this->validate($contentType[0]);
 
         if (!$isValid) {
-            $this->fileManager->deleteFile($path);
+            $this->deleteFile($path);
             throw new UrlImageDownLoadException('Wrong file type');
         }
 
@@ -79,7 +79,7 @@ class ImageDownload
      * @throw UrlImageDownLoadException
      * @throws Exception
      */
-    public function validate($fileType)
+    public function validate(string $fileType)
     {
         if ($this->validatorObject instanceof FileValidator) {
             return $this->validatorObject->validate($fileType);
@@ -88,5 +88,47 @@ class ImageDownload
         throw new \Exception('Validator class should be instance of ' . FileValidator::class);
     }
 
+    /*
+     * Open stream, set file
+     * @param string $fileName
+     * @param string $openMode
+     * @throws \Exception
+     */
+    private function setFile(string $fileName, string $openMode)
+    {
+        $this->stream = fopen($fileName, $openMode);
+        if (!$this->stream) {
+            throw new \Exception('Error with open file resource');
+        }
+    }
 
+    /*
+     * Close file
+     * @return boolean
+     */
+    public function closeResource()
+    {
+        return fclose($this->stream);
+    }
+
+    /*
+     * Build path to file
+     * @param string $path
+     * @param string $fileName
+     * @return string
+     */
+    private function buildFilePath(string $path, string $fileName)
+    {
+        return $path . DIRECTORY_SEPARATOR . $fileName;
+    }
+
+    /*
+     * Delete file
+     * @param string $pathWithName
+     * @return boolean
+     */
+    private function deleteFile(string $pathWithName)
+    {
+        return unlink($pathWithName);
+    }
 }
