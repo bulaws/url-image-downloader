@@ -35,7 +35,7 @@ In accordance to method get image by url and will be save to your path with name
 ### Example
 
 ```
-$downloader = new Image\Download\ImageDownload();
+$downloader = new Image\Downloader\ImageDownload();
 
 $downloader->imageDownloadByUrl('https://24tv.ua/resources/photos/news/1200x675_DIR/201908/1195520.jpg?201908174431', 'image', 'field.jpg');
 ```
