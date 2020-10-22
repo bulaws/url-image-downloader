@@ -12,7 +12,7 @@ class ImageValidator implements FileValidator
     public function validate($fileDescription)
     {
         $rule = $this->rule();
-        if (in_array($fileDescription, $rule['fileType'])) {
+        if (\in_array($fileDescription, $rule['fileType'])) {
             return true;
         }
         return false;

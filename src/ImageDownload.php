@@ -62,7 +62,7 @@ class ImageDownload
             return $e->getMessage();
         }
 
-        $isValid = $this->validate($contentType[0]);
+        $isValid = $this->validate(\array_shift($contentType));
 
         if (!$isValid) {
             $this->deleteFile($path);
@@ -96,7 +96,7 @@ class ImageDownload
      */
     private function setFile(string $fileName, string $openMode)
     {
-        $this->stream = fopen($fileName, $openMode);
+        $this->stream = \fopen($fileName, $openMode);
         if (!$this->stream) {
             throw new \Exception('Error with open file resource');
         }
@@ -108,7 +108,7 @@ class ImageDownload
      */
     public function closeResource()
     {
-        return fclose($this->stream);
+        return \fclose($this->stream);
     }
 
     /*
@@ -129,6 +129,6 @@ class ImageDownload
      */
     private function deleteFile(string $pathWithName)
     {
-        return unlink($pathWithName);
+        return \unlink($pathWithName);
     }
 }
