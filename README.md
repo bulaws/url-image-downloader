@@ -22,7 +22,7 @@ And run composer update.
 Create componet object
 
 ```
-$downloader = new Image\Download\ImageDownload();
+$downloader = new Image\Downloader\ImageDownload();
 ```
 
 For download you call method of ImageDownload class:
