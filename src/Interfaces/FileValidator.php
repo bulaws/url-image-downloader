@@ -11,7 +11,7 @@ interface FileValidator
      * @return boolean
      */
 
-    public function validate($fileDescription);
+    public function validate(string $fileDescription);
 
     /*
      * method return rule for validate

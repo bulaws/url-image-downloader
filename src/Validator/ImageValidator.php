@@ -9,7 +9,7 @@ class ImageValidator implements FileValidator
     /*
      * @inheritdoc
      */
-    public function validate($fileDescription)
+    public function validate(string $fileDescription)
     {
         $rule = $this->rule();
         if (\in_array($fileDescription, $rule['fileType'])) {
