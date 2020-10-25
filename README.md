@@ -19,10 +19,16 @@ Or add to require section composer.json:
 And run composer update.
 
 ### Get starting
-Create componet object
+Create validate object or you can create your own class validate implement FileValidator class:
 
 ```
-$downloader = new Image\Downloader\ImageDownload();
+$imageValidator = new ImageValidator();
+```
+
+Create componet object and insert to ImageDownload:
+
+```
+$downloader = new Image\Downloader\ImageDownload($imageValidator);
 ```
 
 For download you call method of ImageDownload class:
