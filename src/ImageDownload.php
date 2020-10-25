@@ -12,12 +12,12 @@ class ImageDownload
     /*
      * @var File validator pattern
      */
-    protected $validatorObject;
+    protected object $validatorObject;
 
     /*
      * @var Guzzle Client
      */
-    protected $guzzleClient;
+    protected object $guzzleClient;
 
     /*
      * @var Guzzle Client
@@ -61,7 +61,6 @@ class ImageDownload
 
         if (!$isValid) {
             $this->deleteFile($path);
-            throw new UrlImageDownLoadException('Wrong file type');
         }
 
         return true;
