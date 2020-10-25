@@ -2,27 +2,22 @@
 
 namespace Image\Downloader;
 
-use GuzzleHttp\Client;
 use Image\Downloader\Exception\UrlImageDownLoadException;
-use Image\Downloader\Validator\ImageValidator;
+use Image\Downloader\Factory\GuzzeleClientFactory;
 use Image\Downloader\Interfaces\FileValidator;
 
 class ImageDownload
 {
-    /*
-     * @var Array for validator class
-     */
-    public $validator = ImageValidator::class;
 
     /*
      * @var File validator pattern
      */
-    protected $validatorObject;
+    protected object $validatorObject;
 
     /*
      * @var Guzzle Client
      */
-    protected $guzzleClient;
+    protected object $guzzleClient;
 
     /*
      * @var Guzzle Client
@@ -32,10 +27,10 @@ class ImageDownload
     /*
      * Constructor class
      */
-    public function __construct()
+    public function __construct(FileValidator $fileValidator)
     {
-        $this->validatorObject = new $this->validator();
-        $this->guzzleClient = new Client();
+        $this->validatorObject = $fileValidator;
+        $this->guzzleClient = GuzzeleClientFactory::create();
     }
 
     /*
@@ -66,7 +61,6 @@ class ImageDownload
 
         if (!$isValid) {
             $this->deleteFile($path);
-            throw new UrlImageDownLoadException('Wrong file type');
         }
 
         return true;
